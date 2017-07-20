@@ -17,6 +17,7 @@ import os
 from NSX.nsx import NSX
 from st2actions.runners.pythonrunner import Action
 
+
 class addHardwareGw(Action):
     def __init__(self, config=None):
         super(addHardwareGw, self).__init__(config=config)
@@ -80,7 +81,7 @@ class addHardwareGw(Action):
             self.logger.info('Hardware gateway: %s present on the nsx-controller', hw_gw)
             return False
 
-        #Logic to cvalidate certificate.
+        # Logic to cvalidate certificate.
         if 'BEGIN CERTIFICATE' and 'END CERTIFICATE'not in cert:
             self.logger.info('Invalid Certificate')
             return False

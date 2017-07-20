@@ -17,6 +17,7 @@ import os
 from NSX.nsx import NSX
 from st2actions.runners.pythonrunner import Action
 
+
 class configureLogicalSwitch(Action):
     def __init__(self, config=None, action_service=None):
         super(configureLogicalSwitch, self).__init__(config=config, action_service=action_service)
@@ -77,7 +78,7 @@ class configureLogicalSwitch(Action):
         Checks if hardware_gw and lswitch exists.
         '''
 
-        #Logic to check of hw_gw is configured on the nsx-controller.
+        # Logic to check of hw_gw is configured on the nsx-controller.
         print "validating hwgw"
         result = controller.get_hwdevice()
         gws = []
@@ -96,7 +97,7 @@ class configureLogicalSwitch(Action):
             self.logger.info('Hardware gateway: %s not present on the nsx-controller', hw_gw)
             return False
 
-        #Logic to check if the lswitch exists.
+        # Logic to check if the lswitch exists.
         print "validating lswitcgh"
         result = controller.get_logicalswitch()
         sw_list = []
@@ -113,7 +114,7 @@ class configureLogicalSwitch(Action):
                 if sw['name'] == str(lswitch):
                     lswitch_present = True
                     break
-        if  not lswitch_present:
+        if not lswitch_present:
             self.logger.info('Lswitch: %s is not present on the nsx-controller', lswitch)
             return False
         return True
@@ -123,7 +124,7 @@ class configureLogicalSwitch(Action):
         '''
         Logic to create the logical switch and attach hardware binding to it.
         '''
-        #result = controller.create_logicalswitch(name=lswitch_name)
+        # result = controller.create_logicalswitch(name=lswitch_name)
         print "create bidnign"
         result = controller.create_hardwarebinding(lswitch_name=lswitch_name, vlan=vlan,
                                                    port_name=port_name, switch_name=switch_name,
