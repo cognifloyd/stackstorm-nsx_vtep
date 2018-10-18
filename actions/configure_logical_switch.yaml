@@ -1,7 +1,7 @@
 ---
 name: configure_logical_switch
 pack: nsx_vtep
-runner_type: run-python
+runner_type: python-script
 description: Add and configure logical switch
 enabled: true
 entry_point: configure_logical_switch.py

@@ -1,7 +1,7 @@
 ---
 name: add_hw_gw
 pack: nsx_vtep
-runner_type: run-python
+runner_type: python-script
 description: Add certificate in NSX controller.
 enabled: true
 entry_point: add_hw_gw.py
