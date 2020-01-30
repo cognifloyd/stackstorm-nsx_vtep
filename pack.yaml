@@ -5,3 +5,6 @@ description: NSX automation pack.
 version: 0.1.2
 author: GSLAB
 email: yugendra.khonde@gslab.com
+python_versions:
+  - "2"
+  - "3"
