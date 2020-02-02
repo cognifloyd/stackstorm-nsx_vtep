@@ -11,6 +11,7 @@
 # WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations
 # under the License.
+from __future__ import print_function
 
 import logging
 import os
@@ -79,7 +80,7 @@ class configureLogicalSwitch(Action):
         '''
 
         # Logic to check of hw_gw is configured on the nsx-controller.
-        print "validating hwgw"
+        print("validating hwgw")
         result = controller.get_hwdevice()
         gws = []
         if result is not None:
@@ -98,7 +99,7 @@ class configureLogicalSwitch(Action):
             return False
 
         # Logic to check if the lswitch exists.
-        print "validating lswitcgh"
+        print("validating lswitcgh")
         result = controller.get_logicalswitch()
         sw_list = []
         if result is not None:
@@ -125,7 +126,7 @@ class configureLogicalSwitch(Action):
         Logic to create the logical switch and attach hardware binding to it.
         '''
         # result = controller.create_logicalswitch(name=lswitch_name)
-        print "create bidnign"
+        print("create bidnign")
         result = controller.create_hardwarebinding(lswitch_name=lswitch_name, vlan=vlan,
                                                    port_name=port_name, switch_name=switch_name,
                                                    hardware_gateway_name=hardware_gateway_name)
